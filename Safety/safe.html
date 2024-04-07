@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Catan Algorithm</title>
+    <style>
+        .container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            position: absolute;
+            margin-left: 40%;
+            margin-top: 5%;
+        }
+
+        .row {
+            display: flex;
+            justify-content: center; 
+            margin-top: 20px;
+        }
+
+        .circle {
+            width: 100px; 
+            height: 100px; 
+            border-radius: 50%; 
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: white; 
+            font-size: 18px; 
+            font-family: Arial, sans-serif; 
+            text-transform: uppercase; 
+            margin-right: 10px; 
+            margin-bottom: 10px; 
+        }
+
+        
+        .sheep {
+            background-color: #5DADE2; 
+        }
+
+        .wood {
+            background-color: #58D68D;
+        }
+
+        .wheat {
+            background-color: #F7DC6F; 
+        }
+
+        .ore {
+            background-color: #839192; 
+        }
+
+        .brick {
+            background-color: #E74C3C; 
+        }
+
+        .sand {
+            background-color: #F0E68C; 
+        }
+
+        .tiny-circle {
+            width: 20px; 
+            height: 20px; 
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: white; 
+            font-size: 10px; 
+            font-family: Arial, sans-serif; 
+            text-transform: uppercase; 
+            position: absolute; 
+            top: 480px; 
+            left: 240px; 
+            background-color: #E74C3C; 
+        }
+
+
+        /* TOP ROW */
+        .tiny-circle-1 { top: 110px; left: 1180px; }
+        .tiny-circle-2 { top: 110px; left: 1290px; }
+        .tiny-circle-3 { top: 110px; left: 1400px; }
+         /* 2ND ROW */
+        .tiny-circle-4 { top: 140px; left: 1120px; }
+        .tiny-circle-5 { top: 140px; left: 1240px; }
+        .tiny-circle-6 { top: 140px; left: 1360px; }
+        .tiny-circle-7 { top: 140px; left: 1440px; }
+         /* 3RD ROW */
+        .tiny-circle-8 { top: 240px; left: 1120px; }
+        .tiny-circle-9 { top: 240px; left: 1240px; }
+        .tiny-circle-10 { top: 240px; left: 1360px; }
+        .tiny-circle-11 { top: 240px; left: 1440px; }
+        /* 4TH ROW */
+        .tiny-circle-12 { top: 270px; left: 1080px; }
+        .tiny-circle-13 { top: 270px; left: 1180px; }
+        .tiny-circle-14 { top: 270px; left: 1290px; }
+        .tiny-circle-15 { top: 270px; left: 1400px; }
+        .tiny-circle-16 { top: 270px; left: 1500px; }
+        /* 5TH ROW */
+        .tiny-circle-17 { top: 370px; left: 1080px; }
+        .tiny-circle-18 { top: 370px; left: 1180px; }
+        .tiny-circle-19 { top: 370px; left: 1290px; }
+        .tiny-circle-20 { top: 370px; left: 1400px; }
+        .tiny-circle-21 { top: 370px; left: 1500px; }
+        /* 6TH ROW */
+        .tiny-circle-22 { top: 400px; left: 1010px; }
+        .tiny-circle-23 { top: 400px; left: 1120px; }
+        .tiny-circle-24 { top: 400px; left: 1240px; }
+        .tiny-circle-25 { top: 400px; left: 1360px; }
+        .tiny-circle-26 { top: 400px; left: 1440px; }
+        .tiny-circle-27 { top: 400px; left: 1540px; }
+        /* 7TH ROW */
+        .tiny-circle-28 { top: 510px; left: 1010px; }
+        .tiny-circle-29 { top: 510px; left: 1120px; }
+        .tiny-circle-30 { top: 510px; left: 1240px; }
+        .tiny-circle-31 { top: 510px; left: 1360px; }
+        .tiny-circle-32 { top: 510px; left: 1440px; }
+        .tiny-circle-33 { top: 510px; left: 1540px; }
+        /* 8TH ROW */
+        .tiny-circle-34 { top: 540px; left: 1080px; }
+        .tiny-circle-35 { top: 540px; left: 1180px; }
+        .tiny-circle-36 { top: 540px; left: 1290px; }
+        .tiny-circle-37 { top: 540px; left: 1400px; }
+        .tiny-circle-38 { top: 540px; left: 1500px; }
+        /* 9TH ROW */
+        .tiny-circle-39 { top: 630px; left: 1080px; }
+        .tiny-circle-40 { top: 630px; left: 1180px; }
+        .tiny-circle-41 { top: 630px; left: 1290px; }
+        .tiny-circle-42 { top: 630px; left: 1400px; }
+        .tiny-circle-43 { top: 630px; left: 1500px; }
+        /* 10TH ROW */
+        .tiny-circle-44 { top: 660px; left: 1120px; }
+        .tiny-circle-45 { top: 660px; left: 1240px; }
+        .tiny-circle-46 { top: 660px; left: 1360px; }
+        .tiny-circle-47 { top: 660px; left: 1440px; }
+        /* 11TH ROW */
+        .tiny-circle-48 { top: 770px; left: 1120px; }
+        .tiny-circle-49 { top: 770px; left: 1240px; }
+        .tiny-circle-50 { top: 770px; left: 1360px; }
+        .tiny-circle-51 { top: 770px; left: 1440px; }
+        /* 12TH ROW */
+        .tiny-circle-52 { top: 800px; left: 1180px; }
+        .tiny-circle-53 { top: 800px; left: 1290px; }
+        .tiny-circle-54 { top: 800px; left: 1400px; }
+
+
+    </style>
+</head>
+<body>
+    <div class="container">
+    </div>
+    <div class="settler-circle-positions">
+        <div class="tiny-circle tiny-circle-1"></div>
+        <div class="tiny-circle tiny-circle-2"></div>
+        <div class="tiny-circle tiny-circle-3"></div>
+        <div class="tiny-circle tiny-circle-4"></div>
+        <div class="tiny-circle tiny-circle-5"></div>
+        <div class="tiny-circle tiny-circle-6"></div>
+        <div class="tiny-circle tiny-circle-7"></div>
+        <div class="tiny-circle tiny-circle-8"></div>
+        <div class="tiny-circle tiny-circle-9"></div>
+        <div class="tiny-circle tiny-circle-10"></div>
+        <div class="tiny-circle tiny-circle-11"></div>
+        <div class="tiny-circle tiny-circle-12"></div>
+        <div class="tiny-circle tiny-circle-13"></div>
+        <div class="tiny-circle tiny-circle-14"></div>
+        <div class="tiny-circle tiny-circle-15"></div>
+        <div class="tiny-circle tiny-circle-16"></div>
+        <div class="tiny-circle tiny-circle-17"></div>
+        <div class="tiny-circle tiny-circle-18"></div>
+        <div class="tiny-circle tiny-circle-19"></div>
+        <div class="tiny-circle tiny-circle-20"></div>
+        <div class="tiny-circle tiny-circle-21"></div>
+        <div class="tiny-circle tiny-circle-22"></div>
+        <div class="tiny-circle tiny-circle-23"></div>
+        <div class="tiny-circle tiny-circle-24"></div>
+        <div class="tiny-circle tiny-circle-25"></div>
+        <div class="tiny-circle tiny-circle-26"></div>
+        <div class="tiny-circle tiny-circle-27"></div>
+        <div class="tiny-circle tiny-circle-28"></div>
+        <div class="tiny-circle tiny-circle-29"></div>
+        <div class="tiny-circle tiny-circle-30"></div>
+        <div class="tiny-circle tiny-circle-31"></div>
+        <div class="tiny-circle tiny-circle-32"></div>
+        <div class="tiny-circle tiny-circle-33"></div>
+        <div class="tiny-circle tiny-circle-34"></div>
+        <div class="tiny-circle tiny-circle-35"></div>
+        <div class="tiny-circle tiny-circle-36"></div>
+        <div class="tiny-circle tiny-circle-37"></div>
+        <div class="tiny-circle tiny-circle-38"></div>
+        <div class="tiny-circle tiny-circle-39"></div>
+        <div class="tiny-circle tiny-circle-40"></div>
+        <div class="tiny-circle tiny-circle-41"></div>
+        <div class="tiny-circle tiny-circle-42"></div>
+        <div class="tiny-circle tiny-circle-43"></div>
+        <div class="tiny-circle tiny-circle-44"></div>
+        <div class="tiny-circle tiny-circle-45"></div>
+        <div class="tiny-circle tiny-circle-46"></div>
+        <div class="tiny-circle tiny-circle-47"></div>
+        <div class="tiny-circle tiny-circle-48"></div>
+        <div class="tiny-circle tiny-circle-49"></div>
+        <div class="tiny-circle tiny-circle-50"></div>
+        <div class="tiny-circle tiny-circle-51"></div>
+        <div class="tiny-circle tiny-circle-52"></div>
+        <div class="tiny-circle tiny-circle-53"></div>
+        <div class="tiny-circle tiny-circle-54"></div>
+
+    </div>
+
+    <script>
+const resourceLimits = {
+    sheep: 4,
+    wood: 4,
+    wheat: 4,
+    ore: 3,
+    brick: 3,
+};
+
+let numbers = [10, 2, 9, 12, 6, 4, 10, 9, 11, 0, 3, 8, 8, 3, 4, 5, 5, 6, 11];
+
+function shuffleArray(array) {
+    for (let i = array.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [array[i], array[j]] = [array[j], array[i]];
+    }
+}
+
+function loadUniqueNumber() {
+    if (numbers.length === 0) {
+        return null; 
+    }
+    return numbers.pop(); 
+}
+
+function getRandomColor(number) {
+    if (number === 0) {
+        return 'sand';
+    } else {
+        const availableResources = Object.keys(resourceLimits).filter(resource => resourceLimits[resource] > 0);
+        const index = Math.floor(Math.random() * availableResources.length);
+        const resource = availableResources[index];
+        resourceLimits[resource]--; 
+        return resource;
+    }
+}
+
+let overallPosition = 0;
+const circleObjects = [];
+
+
+function createRow(count) {
+    const container = document.querySelector('.container');
+    const row = document.createElement('div');
+    row.classList.add('row');
+    shuffleArray(numbers); 
+    for (let i = 0; i < count; i++) {
+        const circle = document.createElement('div');
+        const number = loadUniqueNumber();
+        const resource = getRandomColor(number);
+        circle.className = `circle ${resource}`;
+        circle.textContent = `${number}`;
+        row.appendChild(circle);
+
+        const circleObject = {
+            position: overallPosition,
+            resource: resource,
+            number: number
+        };
+        circleObjects.push(circleObject); 
+        overallPosition++; 
+
+        console.log(circleObject);
+    }
+    container.appendChild(row);
+}
+
+createRow(3);
+createRow(4);
+createRow(5);
+createRow(4);
+createRow(3);
+
+</script>
+<script src="test.js"></script>
+<script src="gamelogic.js"></script>
+</body>
+</html>
+

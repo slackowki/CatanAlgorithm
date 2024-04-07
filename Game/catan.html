@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Test</title>
+    <style>
+        .container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            position: absolute;
+            margin-left: 40%;
+            margin-top: 5%;
+        }
+
+        .row {
+            display: flex;
+            justify-content: center; 
+            margin-top: 20px;
+        }
+
+        .circle {
+            width: 100px; 
+            height: 100px; 
+            border-radius: 50%; 
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: white; 
+            font-size: 18px; 
+            font-family: Arial, sans-serif; 
+            text-transform: uppercase; 
+            margin-right: 10px; 
+            margin-bottom: 10px; 
+            position: relative;
+        }
+
+        .circle input {
+            position: absolute;
+            bottom: 5px;
+            right: 5px;
+            width: 35px;
+            height: 35px;
+            border-radius: 50%;
+            text-align: center;
+            font-size: 12px;
+        }
+
+        
+        .sheep {
+            background-color: #5DADE2; 
+        }
+
+        .wood {
+            background-color: #58D68D;
+        }
+
+        .wheat {
+            background-color: #F7DC6F; 
+        }
+
+        .ore {
+            background-color: #839192; 
+        }
+
+        .brick {
+            background-color: #E74C3C; 
+        }
+
+        .sand {
+            background-color: #F0E68C; 
+        }
+
+        .tiny-circle {
+            width: 20px; 
+            height: 20px; 
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: white; 
+            font-size: 10px; 
+            font-family: Arial, sans-serif; 
+            text-transform: uppercase; 
+            position: absolute; 
+            top: 480px; 
+            left: 240px; 
+            background-color: #E74C3C; 
+        }
+
+
+        /* TOP ROW */
+        .tiny-circle-1 { top: 110px; left: 1180px; }
+        .tiny-circle-2 { top: 110px; left: 1290px; }
+        .tiny-circle-3 { top: 110px; left: 1400px; }
+         /* 2ND ROW */
+        .tiny-circle-4 { top: 140px; left: 1120px; }
+        .tiny-circle-5 { top: 140px; left: 1240px; }
+        .tiny-circle-6 { top: 140px; left: 1360px; }
+        .tiny-circle-7 { top: 140px; left: 1440px; }
+         /* 3RD ROW */
+        .tiny-circle-8 { top: 240px; left: 1120px; }
+        .tiny-circle-9 { top: 240px; left: 1240px; }
+        .tiny-circle-10 { top: 240px; left: 1360px; }
+        .tiny-circle-11 { top: 240px; left: 1440px; }
+        /* 4TH ROW */
+        .tiny-circle-12 { top: 270px; left: 1080px; }
+        .tiny-circle-13 { top: 270px; left: 1180px; }
+        .tiny-circle-14 { top: 270px; left: 1290px; }
+        .tiny-circle-15 { top: 270px; left: 1400px; }
+        .tiny-circle-16 { top: 270px; left: 1500px; }
+        /* 5TH ROW */
+        .tiny-circle-17 { top: 370px; left: 1080px; }
+        .tiny-circle-18 { top: 370px; left: 1180px; }
+        .tiny-circle-19 { top: 370px; left: 1290px; }
+        .tiny-circle-20 { top: 370px; left: 1400px; }
+        .tiny-circle-21 { top: 370px; left: 1500px; }
+        /* 6TH ROW */
+        .tiny-circle-22 { top: 400px; left: 1010px; }
+        .tiny-circle-23 { top: 400px; left: 1120px; }
+        .tiny-circle-24 { top: 400px; left: 1240px; }
+        .tiny-circle-25 { top: 400px; left: 1360px; }
+        .tiny-circle-26 { top: 400px; left: 1440px; }
+        .tiny-circle-27 { top: 400px; left: 1540px; }
+        /* 7TH ROW */
+        .tiny-circle-28 { top: 510px; left: 1010px; }
+        .tiny-circle-29 { top: 510px; left: 1120px; }
+        .tiny-circle-30 { top: 510px; left: 1240px; }
+        .tiny-circle-31 { top: 510px; left: 1360px; }
+        .tiny-circle-32 { top: 510px; left: 1440px; }
+        .tiny-circle-33 { top: 510px; left: 1540px; }
+        /* 8TH ROW */
+        .tiny-circle-34 { top: 540px; left: 1080px; }
+        .tiny-circle-35 { top: 540px; left: 1180px; }
+        .tiny-circle-36 { top: 540px; left: 1290px; }
+        .tiny-circle-37 { top: 540px; left: 1400px; }
+        .tiny-circle-38 { top: 540px; left: 1500px; }
+        /* 9TH ROW */
+        .tiny-circle-39 { top: 630px; left: 1080px; }
+        .tiny-circle-40 { top: 630px; left: 1180px; }
+        .tiny-circle-41 { top: 630px; left: 1290px; }
+        .tiny-circle-42 { top: 630px; left: 1400px; }
+        .tiny-circle-43 { top: 630px; left: 1500px; }
+        /* 10TH ROW */
+        .tiny-circle-44 { top: 660px; left: 1120px; }
+        .tiny-circle-45 { top: 660px; left: 1240px; }
+        .tiny-circle-46 { top: 660px; left: 1360px; }
+        .tiny-circle-47 { top: 660px; left: 1440px; }
+        /* 11TH ROW */
+        .tiny-circle-48 { top: 770px; left: 1120px; }
+        .tiny-circle-49 { top: 770px; left: 1240px; }
+        .tiny-circle-50 { top: 770px; left: 1360px; }
+        .tiny-circle-51 { top: 770px; left: 1440px; }
+        /* 12TH ROW */
+        .tiny-circle-52 { top: 800px; left: 1180px; }
+        .tiny-circle-53 { top: 800px; left: 1290px; }
+        .tiny-circle-54 { top: 800px; left: 1400px; }
+
+
+    </style>
+</head>
+<body>
+    <button id="runAdditionalJSButton">Run Functions</button>
+    <button id="randomizeButton">Randomize Circles</button>
+    <div class="container">
+    </div>
+    <div class="settler-circle-positions">
+        <div class="tiny-circle tiny-circle-1"></div>
+        <div class="tiny-circle tiny-circle-2"></div>
+        <div class="tiny-circle tiny-circle-3"></div>
+        <div class="tiny-circle tiny-circle-4"></div>
+        <div class="tiny-circle tiny-circle-5"></div>
+        <div class="tiny-circle tiny-circle-6"></div>
+        <div class="tiny-circle tiny-circle-7"></div>
+        <div class="tiny-circle tiny-circle-8"></div>
+        <div class="tiny-circle tiny-circle-9"></div>
+        <div class="tiny-circle tiny-circle-10"></div>
+        <div class="tiny-circle tiny-circle-11"></div>
+        <div class="tiny-circle tiny-circle-12"></div>
+        <div class="tiny-circle tiny-circle-13"></div>
+        <div class="tiny-circle tiny-circle-14"></div>
+        <div class="tiny-circle tiny-circle-15"></div>
+        <div class="tiny-circle tiny-circle-16"></div>
+        <div class="tiny-circle tiny-circle-17"></div>
+        <div class="tiny-circle tiny-circle-18"></div>
+        <div class="tiny-circle tiny-circle-19"></div>
+        <div class="tiny-circle tiny-circle-20"></div>
+        <div class="tiny-circle tiny-circle-21"></div>
+        <div class="tiny-circle tiny-circle-22"></div>
+        <div class="tiny-circle tiny-circle-23"></div>
+        <div class="tiny-circle tiny-circle-24"></div>
+        <div class="tiny-circle tiny-circle-25"></div>
+        <div class="tiny-circle tiny-circle-26"></div>
+        <div class="tiny-circle tiny-circle-27"></div>
+        <div class="tiny-circle tiny-circle-28"></div>
+        <div class="tiny-circle tiny-circle-29"></div>
+        <div class="tiny-circle tiny-circle-30"></div>
+        <div class="tiny-circle tiny-circle-31"></div>
+        <div class="tiny-circle tiny-circle-32"></div>
+        <div class="tiny-circle tiny-circle-33"></div>
+        <div class="tiny-circle tiny-circle-34"></div>
+        <div class="tiny-circle tiny-circle-35"></div>
+        <div class="tiny-circle tiny-circle-36"></div>
+        <div class="tiny-circle tiny-circle-37"></div>
+        <div class="tiny-circle tiny-circle-38"></div>
+        <div class="tiny-circle tiny-circle-39"></div>
+        <div class="tiny-circle tiny-circle-40"></div>
+        <div class="tiny-circle tiny-circle-41"></div>
+        <div class="tiny-circle tiny-circle-42"></div>
+        <div class="tiny-circle tiny-circle-43"></div>
+        <div class="tiny-circle tiny-circle-44"></div>
+        <div class="tiny-circle tiny-circle-45"></div>
+        <div class="tiny-circle tiny-circle-46"></div>
+        <div class="tiny-circle tiny-circle-47"></div>
+        <div class="tiny-circle tiny-circle-48"></div>
+        <div class="tiny-circle tiny-circle-49"></div>
+        <div class="tiny-circle tiny-circle-50"></div>
+        <div class="tiny-circle tiny-circle-51"></div>
+        <div class="tiny-circle tiny-circle-52"></div>
+        <div class="tiny-circle tiny-circle-53"></div>
+        <div class="tiny-circle tiny-circle-54"></div>
+
+    </div>
+<script src="circleObjectsDefinition.js"></script>
+<script src="randomData.js"></script>
+<script>
+const randomizeButton = document.getElementById('randomizeButton');
+randomizeButton.addEventListener('click', fillCircles);
+
+let circleCount = 0; // Total number of circles created
+
+const rgbToResourceMap = {
+    'rgb(93, 173, 226)': 'sheep',
+    'rgb(88, 214, 141)': 'wood',
+    'rgb(247, 220, 111)': 'wheat',
+    'rgb(131, 145, 146)': 'ore',
+    'rgb(231, 76, 60)': 'brick',
+    'rgb(240, 230, 140)': 'sand'
+};
+
+const resourceColors = ['#5DADE2', '#58D68D', '#F7DC6F', '#839192', '#E74C3C', '#F0E68C'];
+let currentColorIndex = 0;
+
+function getRandomColor(number) {
+    if (number === 0) {
+        return '#F0E68C'; // Sand color
+    } else {
+        return resourceColors[Math.floor(Math.random() * resourceColors.length)];
+    }
+}
+
+function toggleColor(circle) {
+    currentColorIndex = (currentColorIndex + 1) % resourceColors.length;
+    circle.style.backgroundColor = resourceColors[currentColorIndex];
+}
+
+function createRow(rowSize) {
+    const container = document.querySelector('.container');
+    const row = document.createElement('div');
+    row.classList.add('row');
+    
+    for (let i = 0; i < rowSize; i++) {
+        const circle = document.createElement('div');
+        circle.classList.add('circle');
+        circle.style.backgroundColor = '#000000'; // Start with black color
+        
+        // Event listener for circle color change
+        circle.addEventListener('click', function() {
+            toggleColor(circle);
+            updateCircleObject(circle, rowSize); // Pass rowSize as an argument
+        });
+
+        const input = document.createElement('input');
+        input.type = 'number';
+        input.min = '2';
+        input.max = '12';
+        input.value = '6';
+        input.style.position = 'relative';
+        input.style.bottom = '0px';
+        input.style.right = '0px';
+        input.style.width = '50px';
+        input.style.height = '50px';
+        input.style.borderRadius = '50%';
+        input.style.textAlign = 'center';
+        input.style.fontSize = '18px';
+        
+        // Event listener for input value change
+        input.addEventListener('input', function() {
+            circle.style.backgroundColor = getRandomColor(parseInt(input.value));
+            updateCircleObject(circle, rowSize); // Pass rowSize as an argument
+        });
+        
+        circle.appendChild(input);
+        row.appendChild(circle);
+
+        const circleObject = {
+            position: circleCount, // Use the current value of circleCount as position
+            resource: null, // No resource assigned initially
+            number: null // No number assigned initially
+        };
+        circleObjects.push(circleObject); 
+
+        circleCount++; // Increment circle count for each circle created
+    }
+    
+    container.appendChild(row);
+}
+
+// Function to update circleObject based on circle's current state
+function updateCircleObject(circle, rowSize) {
+    const index = Array.from(circle.parentNode.children).indexOf(circle);
+    const input = circle.querySelector('input');
+    const circleObject = circleObjects[index];
+    const rgbColor = circle.style.backgroundColor;
+    const rowIndex = Array.from(circle.parentNode.parentNode.children).indexOf(circle.parentNode);
+    const rowStartIndex = rowIndex * rowSize;
+    circleObject.position = rowStartIndex + index;
+    circleObject.resource = rgbToResourceMap[rgbColor];
+    circleObject.number = parseInt(input.value);
+    console.log(circleObject);
+}
+
+// Create rows with respective circle counts and update overallPosition accordingly
+createRow(3);
+createRow(4);
+createRow(5);
+createRow(4);
+createRow(3);
+</script>
+<script src="main.js"></script>
+</body>
+</html>
+
